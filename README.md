@@ -3,12 +3,12 @@
 bilibili-helper-pro
 </h1>
 
-[![GitHub stars](https://img.shields.io/github/stars/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/network)
-[![GitHub issues](https://img.shields.io/github/issues/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/issues)
-[![GitHub license](https://img.shields.io/github/license/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/LICENSE) 
-[![GitHub All Releases](https://img.shields.io/github/downloads/gitldy1013/bilibili-helper-pro/total?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/releases)
-[![GitHub contributors](https://img.shields.io/github/contributors/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro@main/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro@main/network)
+[![GitHub issues](https://img.shields.io/github/issues/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro@main/issues)
+[![GitHub license](https://img.shields.io/github/license/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro@main/blob/main/LICENSE) 
+[![GitHub All Releases](https://img.shields.io/github/downloads/gitldy1013/bilibili-helper-pro/total?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro@main/releases)
+[![GitHub contributors](https://img.shields.io/github/contributors/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro@main/graphs/contributors)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gitldy1013/bilibili-helper-pro?style=flat-square)
 
 </div>
@@ -123,9 +123,9 @@ bilibili-helper-pro
 
 ### 步骤
 
-1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro/releases)，下载已发布的版本，上传至 Liunx 服务器。
+1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro@main/releases)，下载已发布的版本，上传至 Liunx 服务器。
    
-**Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
+**Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro@main/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
 ```
 bilibili-helper-pro.jar
@@ -159,9 +159,9 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 
 ### 步骤
 
-1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro/releases)，下载已发布的版本。解压，在解压后的目录打开 `Powershell` 需要装有 Java 运行环境。
+1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro@main/releases)，下载已发布的版本。解压，在解压后的目录打开 `Powershell` 需要装有 Java 运行环境。
    
-**Windows用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
+**Windows用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro@main/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
 1. 执行 `java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT `
 
@@ -219,7 +219,7 @@ jobs:
     - name: Load upstream commits
       run: |
         git update-index --assume-unchanged ./src/main/resources/config.json
-        git pull https://github.com/gitldy1013/bilibili-helper-pro.git --log --no-commit
+        git pull https://github.com/gitldy1013/bilibili-helper-pro@main.git --log --no-commit
     - name: Apply commit changes
       run: |
         if [ -f ./.git/MERGE_MSG ]; then
@@ -255,7 +255,7 @@ upstream        https://github.com/CodFrm/cxmooc-tools.git (push)
 2. fork 仓库后，将你的仓库拉到本地，如果没有源头仓库，则添加源头仓库
 
 ```bash
-git remote add upstream https://github.com/gitldy1013/bilibili-helper-pro.git
+git remote add upstream https://github.com/gitldy1013/bilibili-helper-pro@main.git
 ```
 
 3. 更新上游仓库 main 分支的代码（pull 操作实际上是 `fetch+merge`）
