@@ -1,4 +1,4 @@
-name: Auto_Package_BILIBILI-HELPER
+name: auto_package_bilibili-helper-pro
 
 on:
   push:
@@ -51,10 +51,10 @@ jobs:
 
       - name: ZIP files
         run: |
-          mv -f ./target/BILIBILI-HELPER-${{steps.tag_main.outputs.value}}-jar-with-dependencies.jar BILIBILI-HELPER-v${{steps.tag_latest.outputs.value}}.jar
-          zip BILIBILI-HELPER\ v${{steps.tag_latest.outputs.value}}.zip BILIBILI-HELPER-v${{steps.tag_latest.outputs.value}}.jar
-          zip -m BILIBILI-HELPER\ v${{steps.tag_latest.outputs.value}}.zip LICENSE
-          zip -m BILIBILI-HELPER\ v${{steps.tag_latest.outputs.value}}.zip README.md
+          mv -f ./target/bilibili-helper-pro-${{steps.tag_main.outputs.value}}-jar-with-dependencies.jar bilibili-helper-pro-v${{steps.tag_latest.outputs.value}}.jar
+          zip bilibili-helper-pro\ v${{steps.tag_latest.outputs.value}}.zip bilibili-helper-pro-v${{steps.tag_latest.outputs.value}}.jar
+          zip -m bilibili-helper-pro\ v${{steps.tag_latest.outputs.value}}.zip LICENSE
+          zip -m bilibili-helper-pro\ v${{steps.tag_latest.outputs.value}}.zip README.md
 
       - name: Create Release
         id: create_release
@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           tag_name: V${{steps.tag_latest.outputs.value}}
-          release_name: BILIBILI-HELPER-v${{steps.tag_latest.outputs.value}}
+          release_name: bilibili-helper-pro-v${{steps.tag_latest.outputs.value}}
           body: |
             ${{steps.description.outputs.content}}
           draft: false
@@ -76,6 +76,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./BILIBILI-HELPER v${{steps.tag_latest.outputs.value}}.zip
-          asset_name: BILIBILI-HELPER-v${{steps.tag_latest.outputs.value}}.zip
+          asset_path: ./bilibili-helper-pro v${{steps.tag_latest.outputs.value}}.zip
+          asset_name: bilibili-helper-pro-v${{steps.tag_latest.outputs.value}}.zip
           asset_content_type: application/zip
