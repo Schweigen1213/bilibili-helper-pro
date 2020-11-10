@@ -18,7 +18,7 @@ import top.misec.utils.LoadFileResource;
 import java.util.*;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/11 20:44
  */
 public class DailyTask {

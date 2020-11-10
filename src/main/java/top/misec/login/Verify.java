@@ -1,7 +1,7 @@
 package top.misec.login;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/11 16:49
  */
 public class Verify {

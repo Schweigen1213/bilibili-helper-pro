@@ -8,7 +8,7 @@ import top.misec.task.DailyTask;
 
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/11 2:29
  */
 public class BiliMain {

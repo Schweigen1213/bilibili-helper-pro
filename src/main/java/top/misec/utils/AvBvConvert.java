@@ -3,7 +3,7 @@ package top.misec.utils;
 import java.util.HashMap;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/11 20:49
  */
 public class AvBvConvert {

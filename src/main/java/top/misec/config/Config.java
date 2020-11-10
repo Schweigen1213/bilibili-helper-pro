@@ -8,7 +8,7 @@ import top.misec.utils.LoadFileResource;
 /**
  * Auto-generated: 2020-10-13 17:10:40
  *
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/13 17:11
  */
 

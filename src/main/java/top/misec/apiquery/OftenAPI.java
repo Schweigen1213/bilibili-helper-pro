@@ -9,7 +9,7 @@ import top.misec.utils.HttpUtil;
 /**
  * 部分API简单封装。
  *
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/14 14:27
  */
 public class OftenAPI {

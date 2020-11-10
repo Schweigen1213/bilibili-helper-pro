@@ -19,7 +19,7 @@ import top.misec.login.Verify;
 import java.io.IOException;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/11 4:03
  */
 public class HttpUtil {

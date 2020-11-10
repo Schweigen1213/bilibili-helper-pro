@@ -7,7 +7,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/17 19:31
  * 工具类通过流的方式读取文件
  */

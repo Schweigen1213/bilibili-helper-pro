@@ -7,7 +7,7 @@ import top.misec.login.ServerVerify;
 import top.misec.login.Verify;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/12 20:24
  */
 public class DailyTaskTest {

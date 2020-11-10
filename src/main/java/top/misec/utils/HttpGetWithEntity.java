@@ -5,7 +5,7 @@ import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import java.net.URI;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/12 18:42
  */
 public class HttpGetWithEntity extends HttpEntityEnclosingRequestBase {

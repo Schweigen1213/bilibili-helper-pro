@@ -1,7 +1,7 @@
 package top.misec.apiquery;
 
 /**
- * @author Junzhou Liu
+ * @author cmcc
  * @create 2020/10/11 3:40
  */
 public class ApiList {
