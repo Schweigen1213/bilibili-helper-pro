@@ -1,14 +1,14 @@
 <div align="center">
 <h1 align="center">
-BILIBILI-HELPER
+bilibili-helper-pro
 </h1>
 
-[![GitHub stars](https://img.shields.io/github/stars/JunzhouLiu/BILIBILI-HELPER?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/JunzhouLiu/BILIBILI-HELPER?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/network)
-[![GitHub issues](https://img.shields.io/github/issues/JunzhouLiu/BILIBILI-HELPER?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/issues)
-[![GitHub license](https://img.shields.io/github/license/JunzhouLiu/BILIBILI-HELPER?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/LICENSE) 
-[![GitHub All Releases](https://img.shields.io/github/downloads/JunzhouLiu/BILIBILI-HELPER/total?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/releases)
-[![GitHub contributors](https://img.shields.io/github/contributors/JunzhouLiu/BILIBILI-HELPER?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/graphs/contributors)
+[![GitHub stars](https://img.shields.io/github/stars/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/network)
+[![GitHub issues](https://img.shields.io/github/issues/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/issues)
+[![GitHub license](https://img.shields.io/github/license/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/LICENSE) 
+[![GitHub All Releases](https://img.shields.io/github/downloads/gitldy1013/bilibili-helper-pro/total?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/releases)
+[![GitHub contributors](https://img.shields.io/github/contributors/gitldy1013/bilibili-helper-pro?style=flat-square)](https://github.com/gitldy1013/bilibili-helper-pro/graphs/contributors)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gitldy1013/bilibili-helper-pro?style=flat-square)
 
 </div>
@@ -123,27 +123,16 @@ BILIBILI-HELPER
 
 *投币数量代码做了处理，如果本日投币不能获得经验了，则不会投币，每天只投能获得经验的硬币。假设你设置每日投币 3 个，早上 7 点你自己投了 2 个硬币，则十点半时，程序只会投 1 个）*
 
-### 查看运行日志
-
-*展开 `Build With Maven` 通过 `DEBUG` 标签快速过滤日志，查看运行状态*  
-
-[Actions 运行日志详细查看教程](https://github.com/JunzhouLiu/BILIBILI-HELPER/issues/21)
-
-[日志示例](https://github.com/JunzhouLiu/BILIBILI-HELPER/runs/1256484004?check_suite_focus=true#step:4:5069)
-
-![图示](docs/IMG/debug1.png)
-![图示](docs/IMG/debug2.png)
-
 ## 二、使用 Linux Crontab 方式
 
 ### 步骤
 
-1. 点击 [BILIBILI-HELPER/release](https://github.com/JunzhouLiu/BILIBILI-HELPER/releases)，下载已发布的版本，上传至 Liunx 服务器。
+1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro/releases)，下载已发布的版本，上传至 Liunx 服务器。
    
-**Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/JunzhouLiu/BILIBILI-HELPER/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
+**Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
 ```
-BILIBILI-HELPER.jar
+bilibili-helper-pro.jar
 config.json
 ```
 
@@ -163,7 +152,7 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 # m h  dom mon dow   command
 0 0 1,15 * * /home/./acme.sh-master/acme.sh --renew-all >>/var/log/cron.log 2>&1 &
 0 0 1,15 * * nginx -s reload >>/var/log/cron.log 2>&1 &
-30 10 * * * java -jar /home/BILIBILI-HELP.jar DEDEUSERID SESSDATA BILI_JCT >>/var/log/cron.log 2>&1 &
+30 10 * * * java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT >>/var/log/cron.log 2>&1 &
 ```
 
 ### 运行效果
@@ -174,11 +163,11 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 
 ### 步骤
 
-1. 点击 [BILIBILI-HELPER/release](https://github.com/JunzhouLiu/BILIBILI-HELPER/releases)，下载已发布的版本。解压，在解压后的目录打开 `Powershell` 需要装有 Java 运行环境。
+1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro/releases)，下载已发布的版本。解压，在解压后的目录打开 `Powershell` 需要装有 Java 运行环境。
    
-**Windows用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/JunzhouLiu/BILIBILI-HELPER/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
+**Windows用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
-1. 执行 `java -jar /home/BILIBILI-HELP.jar DEDEUSERID SESSDATA BILI_JCT `
+1. 执行 `java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT `
 
 ![图示](docs/IMG/powershell.png)
 
@@ -192,12 +181,6 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 ![图示](docs/IMG/serverpush.png)
 4. 推送效果展示
 ![图示](docs/IMG/wechatMsgPush.png)
-
-## 订阅版本更新
-
-微信扫描以下二维码进入用户反馈群（通道推送已移除）
-
-![图示](docs/IMG/wechatGroup.jpg)
 
 # 快速更新
 
@@ -240,7 +223,7 @@ jobs:
     - name: Load upstream commits
       run: |
         git update-index --assume-unchanged ./src/main/resources/config.json
-        git pull https://github.com/JunzhouLiu/BILIBILI-HELPER.git --log --no-commit
+        git pull https://github.com/gitldy1013/bilibili-helper-pro.git --log --no-commit
     - name: Apply commit changes
       run: |
         if [ -f ./.git/MERGE_MSG ]; then
@@ -276,7 +259,7 @@ upstream        https://github.com/CodFrm/cxmooc-tools.git (push)
 2. fork 仓库后，将你的仓库拉到本地，如果没有源头仓库，则添加源头仓库
 
 ```bash
-git remote add upstream https://github.com/JunzhouLiu/BILIBILI-HELPER.git
+git remote add upstream https://github.com/gitldy1013/bilibili-helper-pro.git
 ```
 
 3. 更新上游仓库 main 分支的代码（pull 操作实际上是 `fetch+merge`）
