@@ -63,7 +63,7 @@ bilibili-helper-pro
 - 按 F12 打开 「开发者工具」 找到 应用程序/Application -> 存储 -> Cookies
 - 找到 `bili_jct` `SESSDATA` `DEDEUSERID` 三项，并复制值，创建对应的 GitHub Secrets。
 
-![图示](docs/IMG/20201012001307.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/20201012001307.png)
 
 3. **点击项目 Settings -> Secrets -> New Secrets 添加以下 3 个 Secrets。**
 
@@ -73,13 +73,13 @@ bilibili-helper-pro
 | SESSDATA   | 从 Cookie 中获取 |
 | BILI_JCT   | 从 Cookie 中获取 |
 
-![图示](docs/IMG/20201013210000.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/20201013210000.png)
 
 4. **开启 Actions 并触发每日自动执行**
 
 **Github Actions 默认处于关闭状态，还大家请手动开启 Actions ，执行一次工作流，验证是否可以正常工作。**
 
-![图示](docs/IMG/workflow_dispatch.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/workflow_dispatch.png)
 
 **Fork 仓库后，GitHub 默认不自动执行 Actions 任务，请修改 `./github/trigger.json` 文件,将 `trigger` 的值改为 `1`，这样每天就会自动执行定时任务了。**
 
@@ -153,7 +153,7 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 
 ### 运行效果
 
-![图示](docs/IMG/liunxImg.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/liunxImg.png)
 
 ## 三、使用 Windows10
 
@@ -165,7 +165,7 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 
 1. 执行 `java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT `
 
-![图示](docs/IMG/powershell.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/powershell.png)
 
 # 微信订阅通知
 
@@ -174,9 +174,9 @@ root@iZuf642f8w148fwdcpq169Z:~# crontab -l
 1. 前往 [sc.ftqq.com](http://sc.ftqq.com/3.version) 点击登入，创建账号（建议使用 GitHub 登录）。
 2. 点击点[发送消息](http://sc.ftqq.com/?c=code) ，生成一个 Key。将其增加到 Github Secrets 中，变量名为 `SERVERPUSHKEY`
 3. [绑定微信账号](http://sc.ftqq.com/?c=wechat&a=bind) ，开启微信推送。
-![图示](docs/IMG/serverpush.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/serverpush.png)
 4. 推送效果展示
-![图示](docs/IMG/wechatMsgPush.png)
+![图示](https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro/docs/IMG/wechatMsgPush.png)
 
 # 快速更新
 
