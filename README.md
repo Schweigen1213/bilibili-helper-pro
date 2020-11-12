@@ -50,7 +50,6 @@ bilibili-helper-pro
   - [关于项目更新频率](#关于项目更新频率)
   - [使用 Github Actions 自动同步源仓库代码](#使用-github-actions-自动同步源仓库代码)
   - [手动拉取最新代码](#手动拉取最新代码)
-- [常见问题解答](#常见问题解答)
 - [API 参考列表](#api-参考列表)
 
 # 使用说明
@@ -123,33 +122,14 @@ bilibili-helper-pro
 
 ### 步骤
 
-1. 点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro/releases)，下载已发布的版本，上传至 Liunx 服务器。
-   
+1. 在linux shell环境执行以下命令，并按照提示输入SESSDATA，DEDEUSERID，BILI_JCT，SCKEY四个参数。
+
+wget https://raw.githubusercontent.com/gitldy1013/bilibili-helper-pro/main/setup.sh && chmod +x ./setup.sh && sudo ./setup.sh
+
 **Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
-```
 bilibili-helper-pro.jar
 config.json
-```
-
-2. `crontab -l`
-
-```bash
-root@iZuf642f8w148fwdcpq169Z:~# crontab -l
-.......
-# m h  dom mon dow   command
-0 0 1,15 * * /home/./acme.sh-master/acme.sh --renew-all >>/var/log/cron.log 2>&1 &
-0 0 1,15 * * nginx -s reload >>/var/log/cron.log 2>&1 &
-```
-
-3. `corntab -e`，编辑 crontab 任务，退出保存即可。后面跟的三个参数为哔哩哔哩 Cookies 参数。
-
-```bash
-# m h  dom mon dow   command
-0 0 1,15 * * /home/./acme.sh-master/acme.sh --renew-all >>/var/log/cron.log 2>&1 &
-0 0 1,15 * * nginx -s reload >>/var/log/cron.log 2>&1 &
-30 10 * * * java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT >>/var/log/cron.log 2>&1 &
-```
 
 ### 运行效果
 
