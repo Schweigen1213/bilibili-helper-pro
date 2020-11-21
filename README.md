@@ -19,6 +19,12 @@ bilibili-helper-pro
 
 ## 功能列表
 
+**本项目不会增加类似于自动转发抽奖，秒杀，下载版权受限视频等侵犯UP主/B站权益的功能，开发这个应用的目的是单纯的技术分享。下游分支开发者/使用者也请不要滥用相关功能。**
+
+**本项目欢迎其他开发者参与贡献，基于本工具的二次开发，使用其他语言重写都没有什么问题，能在技术上给你带来帮助和收获就很好**
+
+**请不要滥用相关API，让我们一起爱护B站 ❤**
+
 * [x] 每天上午 9 点 10 分自动开始任务。*【运行时间可自定义】*
 * [x] 哔哩哔哩漫画每日自动签到 。
 * [x] 每日自动从热门视频中随机观看 1 个视频，分享一个视频。
@@ -29,7 +35,11 @@ bilibili-helper-pro
 * [x] 每日哔哩哔哩直播自动签到，领取签到奖励。*【直播你可以不看，但是奖励咱们一定要领】*
 * [x] 通过server酱推送执行结果到微信。
 * [x] Linux用户支持自定义配置了。
-......
+* [x] 投币策略更新可配置投币喜好。*【可配置优先给关注的up投币】*
+  
+[点此查看更新日志](https://github.com/JunzhouLiu/BILIBILI-HELPER/blob/main/SECURITY.md)
+
+[点击快速开始使用](#使用说明)
 
 # 目录
 
@@ -37,7 +47,7 @@ bilibili-helper-pro
   - [功能列表](#功能列表)
 - [目录](#目录)
 - [使用说明](#使用说明)
-  - [一、Actions 定时任务（推荐）](#一actions-定时任务推荐)
+  - [一、Actions 方式](#一actions-方式)
     - [配置自定义功能](#配置自定义功能)
   - [二、使用 Linux Crontab 方式](#二使用-linux-crontab-方式)
     - [步骤](#步骤)
@@ -54,7 +64,7 @@ bilibili-helper-pro
 
 # 使用说明
 
-## 一、Actions 定时任务（推荐）
+## 一、Actions 方式
 
 1. **Fork 本项目**
 2. **获取 Bilibili Cookies**
@@ -102,19 +112,36 @@ bilibili-helper-pro
 
 *如果收到了 GitHub Action 的错误邮件，请检查 Cookies 是不是失效了，用户主动清除浏览器缓存，会导致 `BILI_JCT` 和 `DEDEUSERID` 失效*
 
+**请各位使用 Actions 时务必遵守Github条款。不要滥用Actions服务。**
+
+**Please be sure to abide by the Github terms when using Actions. Do not abuse the Actions service.**
+
 ### 配置自定义功能
 
 **配置文件位于 `src/main/resources/config.json`**
 
 参数示意
 
-| Key                | Value         | 说明                                                      |
-| ------------------ | ------------- | --------------------------------------------------------- |
-| numberOfCoins      | [0,5]         | 每日投币数量,默认 5                                       |
-| selectLike         | [0,1]         | 投币时是否点赞，默认 0, 0：否 1：是                       |
-| ~~watchAndShare~~  | ~~[0,1]~~     | ~~观看时是否分享~~                                        |
-| monthEndAutoCharge | [false,true]  | 年度大会员月底是否用 B币券 给自己充电，默认 `true`        |
-| devicePlatform     | [ios,android] | 手机端漫画签到时的平台，建议选择你设备的平台 ，默认 `ios` |
+| Key                | Value         | 说明                                                                                                          |
+| ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| numberOfCoins      | [0,5]         | 每日投币数量,默认 5                                                                                           |
+| selectLike         | [0,1]         | 投币时是否点赞，默认 0, 0：否 1：是                                                                           |
+| ~~watchAndShare~~  | ~~[0,1]~~     | ~~观看时是否分享~~                                                                                            |
+| monthEndAutoCharge | [false,true]  | 年度大会员月底是否用 B币券 给自己充电，默认 `true`                                                            |
+| devicePlatform     | [ios,android] | 手机端漫画签到时的平台，建议选择你设备的平台 ，默认 `ios`                                                     |
+| coinAddPriority    | [0,1]         | 0：优先给热榜视频投币，1：优先给关注的up投币                                                                  |
+| userAgent          | 浏览器UA      | 用户可根据部署平台配置，可根据userAgent参数列表自由选取，如果触发了HTTP/1.1 412 Precondition Failed也请修改UA |
+
+userAgent可选参数列表
+| 平台      | 浏览器         | userAgent                                                                                                                           |
+| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Windows10 | EDGE(chromium) | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 Edg/86.0.622.69 |
+| Windows10 | Chrome         | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36                 |
+| masOS     | safari         | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15               |
+| macOS     | Firefox        | Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:65.0) Gecko/20100101 Firefox/65.0                                                  |
+| macOS     | Chrome         | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36            |
+
+*ps：如果尝试给关注的 up 投币十次后（保不准你关注的是年更up主），还没完成每日投币任务，则切换成热榜模式，给热榜视频投币*
 
 *投币数量代码做了处理，如果本日投币不能获得经验了，则不会投币，每天只投能获得经验的硬币。假设你设置每日投币 3 个，早上 7 点你自己投了 2 个硬币，则十点半时，程序只会投 1 个）*
 
@@ -128,8 +155,33 @@ wget https://raw.githubusercontent.com/gitldy1013/bilibili-helper-pro/main/setup
 
 **Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
+```
 bilibili-helper-pro.jar
 config.json
+```
+
+除此之外，也可以通过点击 [bilibili-helper-pro/release](https://github.com/gitldy1013/bilibili-helper-pro/releases)，下载已发布的版本，解压后将jar包手动上传到Linux服务器，使用crontab完成定时执行。
+
+**命令格式解释：**
+
+`30 10 * * * java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT SCKEY>/var/log/cron.log &`
+
+| args                               | 说明                                                                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 30 10 * * *                        | cron 定时时间                                                                                              |
+| java -jar                          | 执行jar包                                                                                                  |
+| /home/BILIBILI-HELP.jar            | jar包路径                                                                                                  |
+| DEDEUSERID SESSDATA BILI_JCT SCKEY | 传入参数的顺序，参数含义请见上文,SCKEY可为空（用于server酱推送日志，等同actions任务配置中的SERVERPUSHKEY） |
+| >/var/log/cron.log &               | 日志写入的路径                                                                                             |
+
+
+**命令示例：**
+
+```shell
+# *如果Cookies参数中包含特殊字符，例如`%`请使用`\`转义*
+# m h  dom mon dow   command
+30 10 * * * java -jar /home/BILIBILI-HELP.jar DEDEUSERID SESSDATA BILI_JCT >/var/log/cron.log &
+```
 
 ### 运行效果
 
