@@ -3,7 +3,7 @@ package top.misec.pojo.userinfobean;
 /**
  * Auto-generated: 2020-10-11 3:42:3
  *
- * @author bejson.com (i@bejson.com)
+ * @author cmcc
  * @website http://www.bejson.com/java2pojo/
  */
 public class OfficialVerify {

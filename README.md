@@ -54,10 +54,10 @@ bilibili-helper-pro
     - [运行效果](#运行效果)
   - [三、使用 Windows10](#三使用-windows10)
     - [步骤](#步骤-1)
+  - [四、使用 Docker](#四使用-docker)
 - [微信订阅通知](#微信订阅通知)
   - [订阅执行结果](#订阅执行结果)
 - [快速更新](#快速更新)
-  - [关于项目更新频率](#关于项目更新频率)
   - [使用 Github Actions 自动同步源仓库代码](#使用-github-actions-自动同步源仓库代码)
   - [手动拉取最新代码](#手动拉取最新代码)
 - [API 参考列表](#api-参考列表)
@@ -72,7 +72,7 @@ bilibili-helper-pro
 - 按 F12 打开 「开发者工具」 找到 应用程序/Application -> 存储 -> Cookies
 - 找到 `bili_jct` `SESSDATA` `DEDEUSERID` 三项，并复制值，创建对应的 GitHub Secrets。
 
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/20201012001307.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/20201012001307.png" alt="app"></p>
 
 3. **点击项目 Settings -> Secrets -> New Secrets 添加以下 3 个 Secrets。**
 
@@ -82,15 +82,15 @@ bilibili-helper-pro
 | SESSDATA   | 从 Cookie 中获取 |
 | BILI_JCT   | 从 Cookie 中获取 |
 
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/20201013210000.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/20201013210000.png" alt="app"></p>
 
 4. **开启 Actions 并触发每日自动执行**
 
 **Github Actions 默认处于关闭状态，还大家请手动开启 Actions ，执行一次工作流，验证是否可以正常工作。**
 
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/workflow_dispatch.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/workflow_dispatch.png" alt="app"></p>
 
-**Fork 仓库后，GitHub 默认不自动执行 Actions 任务，请修改 `./github/trigger.json` 文件,将 `trigger` 的值改为 `1`，这样每天就会自动执行定时任务了。**
+**Fork 仓库后，GitHub 默认不自动执行 Actions 任务，请修改 `.github/trigger.json` 文件,将 `trigger` 的值改为 `1`，这样每天就会自动执行定时任务了。**
 
 ```patch
 {
@@ -131,6 +131,7 @@ bilibili-helper-pro
 | devicePlatform     | [ios,android] | 手机端漫画签到时的平台，建议选择你设备的平台 ，默认 `ios`                                                     |
 | coinAddPriority    | [0,1]         | 0：优先给热榜视频投币，1：优先给关注的up投币                                                                  |
 | userAgent          | 浏览器UA      | 用户可根据部署平台配置，可根据userAgent参数列表自由选取，如果触发了HTTP/1.1 412 Precondition Failed也请修改UA |
+| skipDailyTask      | [0,1]         | 是否跳过每日任务，如果需要临时关闭每日任务，此项改为1即可，开启则改为0即可                                    |
 
 userAgent可选参数列表
 | 平台      | 浏览器         | userAgent                                                                                                                           |
@@ -149,9 +150,10 @@ userAgent可选参数列表
 
 ### 步骤
 
-1. 在linux shell环境执行以下命令，并按照提示输入SESSDATA，DEDEUSERID，BILI_JCT，SCKEY四个参数。
-
+1. 在linux shell环境执行以下命令，并按照提示输入SESSDATA，DEDEUSERID，BILI_JCT，SCKEY四个参数
+```
 wget https://raw.githubusercontent.com/gitldy1013/bilibili-helper-pro/main/setup.sh && chmod +x ./setup.sh && sudo ./setup.sh
+```
 
 **Linux用户使用jar包时如果需要自定义配置，请[点此下载](https://github.com/gitldy1013/bilibili-helper-pro/blob/main/src/main/resources/config.json)配置文件，将其到和jar包同一目录即可，执行时优先加载外部配置文件**
 
@@ -185,7 +187,7 @@ config.json
 
 ### 运行效果
 
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/liunxImg.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/liunxImg.png" alt="app"></p>
 
 ## 三、使用 Windows10
 
@@ -197,7 +199,7 @@ config.json
 
 1. 执行 `java -jar /home/bilibili-helper-pro.jar DEDEUSERID SESSDATA BILI_JCT `
 
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/powershell.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/powershell.png" alt="app"></p>
 
 # 微信订阅通知
 
@@ -206,15 +208,11 @@ config.json
 1. 前往 [sc.ftqq.com](http://sc.ftqq.com/3.version) 点击登入，创建账号（建议使用 GitHub 登录）。
 2. 点击点[发送消息](http://sc.ftqq.com/?c=code) ，生成一个 Key。将其增加到 Github Secrets 中，变量名为 `SERVERPUSHKEY`
 3. [绑定微信账号](http://sc.ftqq.com/?c=wechat&a=bind) ，开启微信推送。
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/serverpush.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/serverpush.png" alt="app"></p>
 4. 推送效果展示
-<p align="center"><img width="400" src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/wechatMsgPush.png" alt="app"></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/gitldy1013/bilibili-helper-pro@main/docs/IMG/wechatMsgPush.png" alt="app"></p>
 
 # 快速更新
-
-## 关于项目更新频率
-
-目前处于快速迭代阶段，建议通过以下两种方式从本仓库拉取最新代码。
 
 ## 使用 Github Actions 自动同步源仓库代码
 
