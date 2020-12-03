@@ -13,7 +13,7 @@ public class VersionInfo {
     static Logger logger = (Logger) LogManager.getLogger(VersionInfo.class.getName());
     private static String releaseVersion = "";
     private static String updateDate = "2020-11-21";
-    private static String projectRepo = "https://github.com/JunzhouLiu/BILIBILI-HELPER";
+    private static String projectRepo = "https://github.com/gitldy1013/bilibili-helper-pro";
     private static String releaseInfo = "";
 
     public String getVersion() {
