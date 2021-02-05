@@ -313,7 +313,7 @@ git push origin main
 
 # 应用趋势
 
-[![Stargazers over time](https://starchart.cc/gitldy1013/bilibili-helper-pro.svg)](https://starchart.cc/gitldy1013/bilibili-helper-pro)
+![Stargazers over time](https://starchart.cc/gitldy1013/bilibili-helper-pro.svg)
 
 # API 参考列表
 
