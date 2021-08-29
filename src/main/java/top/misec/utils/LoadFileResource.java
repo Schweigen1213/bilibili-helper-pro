@@ -1,9 +1,12 @@
 package top.misec.utils;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
+import lombok.extern.log4j.Log4j2;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -11,9 +14,8 @@ import java.nio.charset.StandardCharsets;
  * @create 2020/10/17 19:31
  * 工具类通过流的方式读取文件
  */
+@Log4j2
 public class LoadFileResource {
-
-    static Logger logger = (Logger) LogManager.getLogger(LoadFileResource.class.getName());
 
     /**
      * 从外部资源读取配置文件
@@ -31,55 +33,57 @@ public class LoadFileResource {
             is.close();
             config = new String(buffer, StandardCharsets.UTF_8);
         } catch (FileNotFoundException e) {
-            logger.info("未扫描到外部配置文件，即将加载默认配置文件【此提示仅针自行部署的Linux用户，普通用户请忽略】");
+            log.info("未扫描到外部配置文件，即将加载默认配置文件【此提示仅针自行部署的Linux用户，普通用户请忽略】");
         } catch (IOException e) {
             e.printStackTrace();
-            logger.debug(e);
+            log.debug(e);
         }
         return config;
     }
 
+
     /**
-     * 从resource读取配置文件
+     * 从resource读取版本文件
      *
-     * @return configJson 返回配置文件json
+     * @param fileName 文件名
+     * @return 返回读取到文件
      */
-    public static String loadConfigJsonFromAsset() {
-        String configJson = null;
+    public static String loadJsonFromAsset(String fileName) {
+        String json = null;
         try {
-            InputStream is = LoadFileResource.class.getClassLoader().getResourceAsStream("config.json");
+            InputStream is = LoadFileResource.class.getClassLoader().getResourceAsStream(fileName);
             assert is != null;
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            configJson = new String(buffer, StandardCharsets.UTF_8);
+            json = new String(buffer, StandardCharsets.UTF_8);
 
         } catch (IOException e) {
             e.printStackTrace();
-            logger.debug(e);
+            log.debug(e);
         }
-        return configJson;
+        return json;
     }
 
+
     /**
-     * 加载日志
-     *
-     * @return 返回String类型的日志信息
+     * @param filePath 读入的文件路径
+     * @return 返回str
      */
-    public static String loadLogFile() {
-        String log = null;
+    public static String loadFile(String filePath) {
+        String logs = null;
         try {
-            InputStream is = new FileInputStream("logs/daily.log");
+            InputStream is = new FileInputStream(filePath);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            log = new String(buffer, StandardCharsets.UTF_8);
+            logs = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
-            logger.debug(e);
+            log.debug(e);
         }
-        return log;
+        return logs;
     }
 }
